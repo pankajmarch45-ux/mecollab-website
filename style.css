@@ -594,6 +594,34 @@ body {
   background: linear-gradient(180deg, rgba(8, 10, 15, 0) 0%, rgba(13, 17, 26, 0.6) 100%);
   border-top: 1px solid var(--border-color);
 }
+.creator-view-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.view-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-main);
+}
+.view-toggle-btn:active,
+.view-toggle-btn.active {
+  background: rgba(0, 242, 254, 0.15);
+  border-color: var(--primary);
+  color: var(--primary);
+}
 .creator-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1243,18 +1271,96 @@ body {
     padding: 70px 0;
   }
 
-  /* Creator Cards on Mobile */
+  /* Creator View Toggle on Mobile */
+  .creator-view-toggle {
+    display: flex;
+  }
+
+  /* Creator Cards on Mobile: 2x2 Grid (All 4 Together on Screen!) */
   .creator-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 36px;
   }
   .creator-card {
-    max-width: 480px;
-    margin: 0 auto;
+    max-width: none;
+    margin: 0;
     width: 100%;
+    border-radius: var(--radius-sm);
   }
   .creator-card:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
+  }
+  .creator-img-wrap {
+    aspect-ratio: 1 / 1;
+  }
+  .tier-badge {
+    top: 8px;
+    left: 8px;
+    font-size: 0.62rem;
+    padding: 3px 6px;
+  }
+  .creator-info {
+    padding: 12px 10px;
+  }
+  .creator-name-row {
+    margin-bottom: 4px;
+  }
+  .creator-name {
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+  .creator-handle {
+    font-size: 0.74rem;
+  }
+  .ig-icon-btn {
+    font-size: 1.05rem;
+  }
+  .creator-bio {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.74rem;
+    line-height: 1.35;
+    min-height: auto;
+    margin-bottom: 8px;
+    color: #94a3b8;
+  }
+  .creator-tags {
+    display: none; /* Keep all 4 cards clean, compact & balanced on mobile */
+  }
+  .creator-metrics {
+    padding: 6px 8px;
+    margin-bottom: 10px;
+    margin-top: auto;
+  }
+  .metric-val {
+    font-size: 0.88rem;
+  }
+  .metric-key {
+    font-size: 0.6rem;
+  }
+  .creator-card .btn {
+    padding: 8px 6px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  /* Horizontal 1-Row Mode (Desktop Style on Mobile) */
+  .creator-grid.horizontal-row-mode {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    padding: 4px 4px 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .creator-grid.horizontal-row-mode .creator-card {
+    flex: 0 0 240px;
+    min-width: 240px;
+    scroll-snap-align: start;
   }
 
   /* Services Grid */
@@ -1314,6 +1420,25 @@ body {
   }
   .stat-number {
     font-size: 1.6rem;
+  }
+  .creator-grid {
+    gap: 8px;
+  }
+  .creator-info {
+    padding: 10px 8px;
+  }
+  .creator-name {
+    font-size: 0.88rem;
+  }
+  .creator-handle {
+    font-size: 0.7rem;
+  }
+  .metric-val {
+    font-size: 0.82rem;
+  }
+  .creator-card .btn {
+    padding: 7px 4px;
+    font-size: 0.72rem;
   }
   .mobile-bar-btn {
     font-size: 0.82rem;

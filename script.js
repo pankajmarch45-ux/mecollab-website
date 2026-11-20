@@ -70,6 +70,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // 3.1 Creator Mobile Layout Switcher (2x2 Grid vs Horizontal Row)
+  window.switchCreatorLayout = function(layout) {
+    const grid = document.querySelector('.creator-grid');
+    const gridBtn = document.getElementById('viewGridBtn');
+    const rowBtn = document.getElementById('viewRowBtn');
+    
+    if (!grid) return;
+    
+    if (layout === 'row') {
+      grid.classList.add('horizontal-row-mode');
+      if (rowBtn) rowBtn.classList.add('active');
+      if (gridBtn) gridBtn.classList.remove('active');
+    } else {
+      grid.classList.remove('horizontal-row-mode');
+      if (gridBtn) gridBtn.classList.add('active');
+      if (rowBtn) rowBtn.classList.remove('active');
+    }
+  };
+
   // Helper to send lead data
   async function sendLeadData(payload) {
     // 1. Always store locally as backup
