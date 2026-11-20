@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>MeCollab | India's Leading Creator & Brand Collaboration Agency</title>
   <meta name="description" content="MeCollab connects high-impact creators with visionary brands. Explore our exclusive creator roster with 1.8M+ engaged followers across India.">
+  <meta name="theme-color" content="#080a0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
@@ -52,12 +55,30 @@
   </header>
 
   <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" class="mob-link">About</a>
-    <a href="#creators" class="mob-link">Creators Roster</a>
-    <a href="#services" class="mob-link">Services</a>
-    <a href="#why-us" class="mob-link">Why Us</a>
-    <a href="#contact" class="btn btn-primary mob-link">Work With Us</a>
+    <div class="mobile-menu-header">
+      <div class="brand-logo">
+        <img src="assets/logo.jpg" alt="MeCollab Logo" class="logo-img">
+        <span class="logo-text">Me<span>Collab</span></span>
+      </div>
+      <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="mobile-menu-links">
+      <a href="#about" class="mob-link"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="#creators" class="mob-link"><i class="fa-solid fa-users"></i> Creators Roster</a>
+      <a href="#services" class="mob-link"><i class="fa-solid fa-cubes"></i> Services</a>
+      <a href="#why-us" class="mob-link"><i class="fa-solid fa-chart-line"></i> Why Us</a>
+      <a href="#contact" class="btn btn-primary mob-link"><i class="fa-solid fa-handshake"></i> Collab With Us</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <p>Direct Inquiries:</p>
+      <a href="https://www.instagram.com/mecollab.in/?hl=en" target="_blank" class="mob-social-link">
+        <i class="fa-brands fa-instagram"></i> @mecollab.in
+      </a>
+    </div>
   </div>
 
   <!-- Hero Section -->
@@ -173,7 +194,7 @@
         <!-- Creator 1: Ishita Pundeer -->
         <div class="creator-card">
           <div class="creator-img-wrap">
-            <img src="assets/creators/its_me_isha39.jpg" alt="Ishita Pundeer" class="creator-img">
+            <img src="assets/creators/its_me_isha39.jpg" alt="Ishita Pundeer" class="creator-img" loading="lazy" decoding="async">
             <span class="tier-badge mega">1M+ Mega Creator</span>
           </div>
           <div class="creator-info">
@@ -213,7 +234,7 @@
         <!-- Creator 2: Suzan Thakur -->
         <div class="creator-card">
           <div class="creator-img-wrap">
-            <img src="assets/creators/imsuzanthakur.jpg" alt="Suzan Thakur" class="creator-img">
+            <img src="assets/creators/imsuzanthakur.jpg" alt="Suzan Thakur" class="creator-img" loading="lazy" decoding="async">
             <span class="tier-badge macro">394K Macro Creator</span>
           </div>
           <div class="creator-info">
@@ -253,7 +274,7 @@
         <!-- Creator 3: Khushi Dei -->
         <div class="creator-card">
           <div class="creator-img-wrap">
-            <img src="assets/creators/khushi_themountainvillager.jpg" alt="Khushi Dei" class="creator-img">
+            <img src="assets/creators/khushi_themountainvillager.jpg" alt="Khushi Dei" class="creator-img" loading="lazy" decoding="async">
             <span class="tier-badge macro">305K Macro Creator</span>
           </div>
           <div class="creator-info">
@@ -293,7 +314,7 @@
         <!-- Creator 4: Usha Rajput -->
         <div class="creator-card">
           <div class="creator-img-wrap">
-            <img src="assets/creators/usharajput_214.jpg" alt="Usha Rajput" class="creator-img">
+            <img src="assets/creators/usharajput_214.jpg" alt="Usha Rajput" class="creator-img" loading="lazy" decoding="async">
             <span class="tier-badge micro">92K + 232K YT</span>
           </div>
           <div class="creator-info">
@@ -448,22 +469,22 @@
           <div class="form-row">
             <div class="form-group">
               <label>Full Name *</label>
-              <input type="text" id="bName" required placeholder="e.g. Rahul Sharma">
+              <input type="text" id="bName" required placeholder="e.g. Rahul Sharma" autocomplete="name">
             </div>
             <div class="form-group">
               <label>Work Email *</label>
-              <input type="email" id="bEmail" required placeholder="name@company.com">
+              <input type="email" id="bEmail" required placeholder="name@company.com" autocomplete="email" inputmode="email">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>WhatsApp / Phone Number * (10 Digits)</label>
-              <input type="tel" id="bPhone" pattern="[0-9]{10}" required placeholder="9876543210" title="Must be exactly 10 digits">
+              <input type="tel" id="bPhone" pattern="[0-9]{10}" required placeholder="9876543210" title="Must be exactly 10 digits" autocomplete="tel" inputmode="numeric">
             </div>
             <div class="form-group">
               <label>Brand / Company Name *</label>
-              <input type="text" id="bCompany" required placeholder="e.g. MyBrand D2C">
+              <input type="text" id="bCompany" required placeholder="e.g. MyBrand D2C" autocomplete="organization">
             </div>
           </div>
 
@@ -506,22 +527,22 @@
           <div class="form-row">
             <div class="form-group">
               <label>Creator Full Name *</label>
-              <input type="text" id="cName" required placeholder="e.g. Ananya Verma">
+              <input type="text" id="cName" required placeholder="e.g. Ananya Verma" autocomplete="name">
             </div>
             <div class="form-group">
               <label>Email Address *</label>
-              <input type="email" id="cEmail" required placeholder="name@gmail.com">
+              <input type="email" id="cEmail" required placeholder="name@gmail.com" autocomplete="email" inputmode="email">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>WhatsApp Number * (10 Digits)</label>
-              <input type="tel" id="cPhone" pattern="[0-9]{10}" required placeholder="9876543210" title="Must be exactly 10 digits">
+              <input type="tel" id="cPhone" pattern="[0-9]{10}" required placeholder="9876543210" title="Must be exactly 10 digits" autocomplete="tel" inputmode="numeric">
             </div>
             <div class="form-group">
               <label>Instagram Handle / Profile URL *</label>
-              <input type="text" id="cHandle" required placeholder="@yourhandle">
+              <input type="text" id="cHandle" required placeholder="@yourhandle" autocomplete="username">
             </div>
           </div>
 
@@ -630,6 +651,19 @@
       <p>&copy; 2026 MeCollab. All Rights Reserved. Inspired by creator culture.</p>
     </div>
   </footer>
+
+  <!-- Mobile Sticky Bottom Quick Action Bar -->
+  <aside class="mobile-sticky-bar" id="mobileStickyBar" aria-label="Mobile quick actions">
+    <a href="#contact" class="mobile-bar-btn brand-btn" onclick="switchFormTab('brand')">
+      <i class="fa-solid fa-briefcase"></i> <span>Hire Creators</span>
+    </a>
+    <a href="#contact" class="mobile-bar-btn creator-btn" onclick="switchFormTab('creator')">
+      <i class="fa-solid fa-star"></i> <span>Join Roster</span>
+    </a>
+    <a href="https://www.instagram.com/mecollab.in/?hl=en" target="_blank" class="mobile-bar-icon" aria-label="MeCollab Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </aside>
 
   <script src="script.js"></script>
 </body>

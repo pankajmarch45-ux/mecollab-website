@@ -4,22 +4,34 @@
 const SCRIPT_WEBHOOK_URL = ""; 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Toggle
+  // 1. Mobile Menu & Drawer Logic
   const menuToggle = document.getElementById('menuToggle');
+  const menuClose = document.getElementById('menuClose');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
   const mobLinks = document.querySelectorAll('.mob-link');
 
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-
-    mobLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-      });
-    });
+  function openMobileMenu() {
+    if (mobileMenu) mobileMenu.classList.add('open');
+    if (mobileMenuBackdrop) mobileMenuBackdrop.classList.add('open');
+    if (menuToggle) menuToggle.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Lock background scrolling
   }
+
+  function closeMobileMenu() {
+    if (mobileMenu) mobileMenu.classList.remove('open');
+    if (mobileMenuBackdrop) mobileMenuBackdrop.classList.remove('open');
+    if (menuToggle) menuToggle.classList.remove('active');
+    document.body.style.overflow = ''; // Unlock background scrolling
+  }
+
+  if (menuToggle) menuToggle.addEventListener('click', openMobileMenu);
+  if (menuClose) menuClose.addEventListener('click', closeMobileMenu);
+  if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+
+  mobLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
 
   // 2. Tab Switching (Brand vs Creator Form)
   window.switchFormTab = function(type) {
